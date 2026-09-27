@@ -1,0 +1,254 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    font-family: 'Plus Jakarta Sans', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    color: #0F172A;
+    background-color: #FAF8F5;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Outfit', 'Plus Jakarta Sans', sans-serif;
+    letter-spacing: -0.02em;
+  }
+}
+
+/* Custom Glassmorphism & Tactile Depth */
+.glass-panel {
+  background: rgba(255, 255, 255, 0.78);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.85);
+  box-shadow: 0 10px 30px -5px rgba(15, 23, 42, 0.05), 0 2px 6px -1px rgba(15, 23, 42, 0.02);
+}
+
+.glass-card {
+  background: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(241, 245, 249, 0.9);
+  box-shadow: 0 4px 20px -2px rgba(15, 23, 42, 0.04);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.glass-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 20px 40px -10px rgba(15, 23, 42, 0.08), 0 0 0 1px rgba(244, 63, 94, 0.15);
+}
+
+.glass-card-interactive {
+  transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.35s ease;
+}
+
+.glass-card-interactive:hover {
+  transform: translateY(-6px) scale(1.01);
+  box-shadow: 0 24px 48px -12px rgba(15, 23, 42, 0.12), 0 0 0 1px rgba(244, 63, 94, 0.2);
+}
+
+.glass-badge {
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.9);
+}
+
+/* Ambient Radial Background Glows */
+.ambient-glow-top {
+  position: absolute;
+  top: -100px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 1000px;
+  height: 500px;
+  background: radial-gradient(circle, rgba(253, 164, 175, 0.18) 0%, rgba(254, 243, 199, 0.22) 45%, rgba(250, 248, 245, 0) 70%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.ambient-glow-center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 800px;
+  height: 600px;
+  background: radial-gradient(circle, rgba(209, 250, 229, 0.2) 0%, rgba(254, 243, 199, 0.15) 50%, rgba(250, 248, 245, 0) 75%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Custom subtle scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #FAF8F5;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #CBD5E1;
+  border-radius: 9999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #94A3B8;
+}
+
+/* Device Simulator Frames & 3D Phone */
+.phone-perspective-container {
+  perspective: 1400px;
+}
+
+.phone-3d-tilt {
+  transform: rotateY(-8deg) rotateX(6deg) rotateZ(1.5deg);
+  transition: transform 0.7s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.7s ease;
+  transform-style: preserve-3d;
+}
+
+.phone-3d-tilt:hover {
+  transform: rotateY(0deg) rotateX(0deg) rotateZ(0deg) scale(1.03) translateY(-6px);
+}
+
+.phone-titanium-bezel {
+  border-radius: 50px;
+  background: linear-gradient(145deg, #1e293b 0%, #0f172a 35%, #020617 100%);
+  padding: 10px;
+  box-shadow: 
+    inset 0 0 0 1px rgba(255, 255, 255, 0.35),
+    inset 0 2px 4px rgba(255, 255, 255, 0.2),
+    inset 0 -2px 6px rgba(0, 0, 0, 0.8),
+    0 0 0 2px #334155,
+    0 0 0 5px #0b0f19,
+    0 0 0 7px rgba(255, 255, 255, 0.08),
+    0 35px 80px -15px rgba(2, 6, 23, 0.65),
+    0 50px 110px -20px rgba(16, 185, 129, 0.25);
+  position: relative;
+}
+
+.antenna-band {
+  position: absolute;
+  width: 3px;
+  height: 4px;
+  background: #020617;
+  z-index: 30;
+}
+
+.phone-screen-sheen {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.22) 0%, rgba(255, 255, 255, 0.04) 35%, transparent 60%);
+  pointer-events: none;
+  z-index: 30;
+  border-radius: 40px;
+}
+
+@keyframes specularGlint {
+  0% {
+    transform: translateX(-160%) translateY(-160%) rotate(35deg);
+    opacity: 0;
+  }
+  15% {
+    opacity: 0.55;
+  }
+  45% {
+    transform: translateX(160%) translateY(160%) rotate(35deg);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(160%) translateY(160%) rotate(35deg);
+    opacity: 0;
+  }
+}
+
+.phone-specular-sweep {
+  position: absolute;
+  top: -60%;
+  left: -60%;
+  width: 220%;
+  height: 220%;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.02) 20%,
+    rgba(255, 255, 255, 0.28) 50%,
+    rgba(255, 255, 255, 0.03) 80%,
+    transparent 100%
+  );
+  pointer-events: none;
+  z-index: 35;
+  animation: specularGlint 7s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+}
+
+.phone-ground-shadow {
+  width: 80%;
+  height: 24px;
+  background: radial-gradient(ellipse at center, rgba(15, 23, 42, 0.5) 0%, rgba(15, 23, 42, 0) 72%);
+  border-radius: 9999px;
+  filter: blur(10px);
+  margin: 16px auto 0;
+  transform: rotateX(65deg);
+}
+
+.device-mobile-frame {
+  width: 380px;
+  height: 720px;
+  border-radius: 46px;
+  box-shadow: 0 0 0 10px #1E293B, 0 0 0 12px #334155, 0 25px 50px -12px rgba(0, 0, 0, 0.4);
+  position: relative;
+  overflow: hidden;
+  background: #FFFFFF;
+}
+
+.device-dynamic-island {
+  position: absolute;
+  top: 12px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 105px;
+  height: 28px;
+  background: #000000;
+  border-radius: 20px;
+  z-index: 50;
+}
+
+.device-tablet-frame {
+  width: 680px;
+  height: 680px;
+  border-radius: 36px;
+  box-shadow: 0 0 0 12px #1E293B, 0 0 0 14px #334155, 0 25px 60px -15px rgba(0, 0, 0, 0.4);
+  position: relative;
+  overflow: hidden;
+  background: #FFFFFF;
+}
+
+.device-desktop-frame {
+  width: 900px;
+  height: 680px;
+  border-radius: 16px;
+  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.1), 0 25px 60px -15px rgba(0, 0, 0, 0.35);
+  position: relative;
+  overflow: hidden;
+  background: #FFFFFF;
+}
+
+/* Floating animation */
+@keyframes softFloat {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-8px) rotate(0.5deg);
+  }
+}
+
+.animate-soft-float {
+  animation: softFloat 5s ease-in-out infinite;
+}

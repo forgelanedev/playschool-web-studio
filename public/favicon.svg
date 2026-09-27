@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none">
+  <!-- White rounded background with crisp green outline -->
+  <rect x="3" y="3" width="58" height="58" rx="16" fill="#FFFFFF" stroke="#10B981" stroke-width="4"/>
+  
+  <!-- Left leaf -->
+  <path d="M32 38C32 26 21 21 16 23C15 28 17 38 32 38Z" fill="#10B981"/>
+  
+  <!-- Right leaf -->
+  <path d="M32 32C32 20 43 15 48 17C49 22 47 32 32 32Z" fill="#34D399"/>
+  
+  <!-- Center stem -->
+  <path d="M32 46V28" stroke="#059669" stroke-width="3.5" stroke-linecap="round"/>
+  
+  <!-- Soil base mound -->
+  <ellipse cx="32" cy="46" rx="9" ry="3.5" fill="#B45309"/>
+</svg>
